@@ -17,10 +17,10 @@
     <string name="search_code">Recherche de code</string>
     <string name="logout">Déconnexion</string>
     <string name="login">Connexion</string>
-    <string name="login_user_pw">Se connecter avec un nom d'utilisateur et un mot de passe</string>
+    <string name="login_user_pw">Se connecter avec un nom d\'utilisateur et un mot de passe</string>
     <string name="login_oauth">Se connecter via OAuth</string>
-    <string name="login_token">Se connecter en utilisant un jeton d'accès</string>
-    <string name="login_summary_oauth">Connectez-vous à Github à l\'aide du flux de connexion Web OAuth.\nÉtant donné que le processus de connexion s\'effectue dans votre navigateur et qu\'un compte ne peut avoir qu\'une session active à la fois, vous devez vous assurer d\'être déconnecté de Github dans votre navigateur avant de pouvoir vous connecter sur l\'application.\n\nVeuillez visiter la <a href="https://github.com/logout">Page de déconnexion de Github</a>, terminer le processus de déconnexion, puis fermer la fenêtre du navigateur , revenez à l\'application et poursuivez le processus de connexion.\nSi vous êtes sûr de ne pas être connecté, vous pouvez également poursuivre immédiatement le processus de connexion.</string>
+    <string name="login_token">Se connecter en utilisant un jeton d\'accès</string>
+    <string name="login_summary_oauth">Connectez-vous à Github à l\'aide du flux de connexion Web OAuth.\nÉtant donné que le processus de connexion s\'effectue dans votre navigateur et qu\'un compte ne peut avoir qu\'une session active à la fois, vous devez vous assurer d\'être déconnecté de Github dans votre navigateur avant de pouvoir vous connecter sur l\'application.\n\nVeuillez visiter la <a href="https://github.com/logout">Page de déconnexion de Github</a>, terminer le processus de déconnexion, puis fermer la fenêtre du navigateur, revenez à l\'application et poursuivez le processus de connexion.\nSi vous êtes sûr de ne pas être connecté, vous pouvez également poursuivre immédiatement le processus de connexion.</string>
     <string name="credentials_username">Nom d\'utilisateur</string>
     <string name="credentials_password">Mot de passe</string>
     <string name="credentials_error_empty">Ce champ ne doit pas être vide.</string>
@@ -52,10 +52,10 @@
     <string name="other_info">Autre Information</string>
     <string name="view">Voir</string>
     <string name="readme">Lisez-moi</string>
-    <string name="save">Sauvegrader</string>
+    <string name="save">Sauvegarder</string>
     <string name="delete">Supprimer</string>
     <string name="reply">Répondre</string>
-    <string name="reply_selected">Répondre (désigner)</string>
+    <string name="reply_selected">Répondre (désigné)</string>
     <string name="add_comment">Ajouter un commentaire</string>
     <string name="add_reaction">Ajouter une réaction</string>
     <string name="remove_reaction">Retirer une réaction</string>
@@ -102,7 +102,7 @@
     <string name="delete_comment_message">Supprimer ce commentaire?</string>
     <string name="saving_comment">Enregistrement du commentaire\u2026</string>
     <string name="ellipse" translatable="false">\u2026</string>
-    <string name="view_more">View more\u2026</string>
+    <string name="view_more">Voir plus\u2026</string>
     <string name="view_video">Afficher la vidéo</string>
     <string name="pulls">Pulls</string>
     <string name="issue_milestone_hint">Jalon</string>
@@ -124,8 +124,8 @@
     <string name="participating">Participant</string>
     <string name="my_repositories">Mes Référentiels</string>
     <string name="my_issues">Mes Problèmes</string>
-    <string name="my_pull_requests">My pull requests</string>
-    <string name="my_gists">My gists</string>
+    <string name="my_pull_requests">Mes pull requests</string>
+    <string name="my_gists">Mes gists</string>
     <string name="start_page">Page de démarrage</string>
     <string name="start_page_last_selected">Dernière utiliser</string>
     <string name="comment_editor_locked_hint">Les commentaires ne sont disponibles que pour les collaborateurs</string>
@@ -138,11 +138,11 @@
     <string name="mark_all_as_read">Tout marquer comme lu</string>
     <string name="mark_as_read">Marquer comme lu</string>
     <string name="unsubscribe">Se désabonner</string>
-    <string name="mark_repository_as_read_question">Mark all notifications from %1$s as read?</string>
-    <string name="mark_all_as_read_question">Mark all notifications as read?</string>
-    <string name="unread">Unread</string>
-    <string name="undo">Undo</string>
-    <string name="raw">Raw</string>
+    <string name="mark_repository_as_read_question">Marquer toutes les notifications de %1$s comme lues?</string>
+    <string name="mark_all_as_read_question">Marquer toutes les notifications comme lues?</string>
+    <string name="unread">Non lu</string>
+    <string name="undo">Annuler</string>
+    <string name="raw">Brut</string>
     <string name="view_in_file">Afficher dans le fichier</string>
     <string name="reviewed_files">Fichiers examinés:</string>
     <string name="show_details">Afficher les détails</string>
@@ -157,7 +157,7 @@
 
     <string name="reaction_plus_one" translatable="false">+1</string>
     <string name="reaction_minus_one" translatable="false">-1</string>
-    <string name="reaction_laugh">Laugh</string>
+    <string name="reaction_laugh">Éclat de rire</string>
     <string name="reaction_confused">Confus</string>
     <string name="reaction_heart">Coeur</string>
     <string name="reaction_hooray">Hourra</string>
@@ -172,7 +172,7 @@
     <string name="repo_type_sources">Sources</string>
     <string name="repo_type_forks">Forks</string>
     <string name="repo_type_watched">Regardé</string>
-    <string name="repo_type_starred">Starred</string>
+    <string name="repo_type_starred">Étoilé</string>
     <string name="repo_filter">Filtre</string>
     <string name="repo_sort">Ordre de tri</string>
     <string name="repo_sort_order_name_asc">Par nom (A-Z)</string>
@@ -181,10 +181,10 @@
     <string name="repo_sort_order_creation_asc">Plus ancien</string>
     <string name="repo_sort_order_pushed_desc">Most recently pushed</string>
     <string name="repo_sort_order_pushed_asc">Least recently pushed</string>
-    <string name="filter_and_sort">Filter and Sort</string>
+    <string name="filter_and_sort">Filtre et tri</string>
 
     <string name="no_blogs_found">No blogs found.</string>
-    <string name="no_comments_found">Nobody has commented so far.</string>
+    <string name="no_comments_found">Personne n\'a commenté jusqu\'à présent.</string>
     <string name="no_files_found">No files found.</string>
     <string name="no_trends_found">No trending repositories found.</string>
     <string name="no_open_milestones_found">This repository doesn\'t have any open milestones.</string>
