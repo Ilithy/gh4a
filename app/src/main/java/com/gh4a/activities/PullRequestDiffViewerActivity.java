@@ -69,7 +69,7 @@ public class PullRequestDiffViewerActivity extends DiffViewerActivity<ReviewComm
     }
 
     @Override
-    protected Single<List<ReviewComment>> createCommentSingle(boolean bypassCache) {
+    protected Single<List<ReviewComment>> getCommentsSingle(boolean bypassCache) {
         final PullRequestReviewCommentService service =
                 ServiceFactory.get(PullRequestReviewCommentService.class, bypassCache);
         return ApiHelpers.PageIterator
@@ -103,7 +103,7 @@ public class PullRequestDiffViewerActivity extends DiffViewerActivity<ReviewComm
     }
 
     @Override
-    protected PositionalCommentBase onUpdateReactions(PositionalCommentBase comment,
+    protected PositionalCommentBase buildCommentWithReactions(PositionalCommentBase comment,
             Reactions reactions) {
         return ((ReviewComment) comment).toBuilder()
                 .reactions(reactions)
@@ -111,7 +111,7 @@ public class PullRequestDiffViewerActivity extends DiffViewerActivity<ReviewComm
     }
 
     @Override
-    protected Single<Response<Void>> doDeleteComment(long id) {
+    protected Single<Response<Void>> deleteCommentSingle(long id) {
         PullRequestReviewCommentService service =
                 ServiceFactory.get(PullRequestReviewCommentService.class, false);
         return service.deleteComment(mRepoOwner, mRepoName, id);
@@ -119,7 +119,7 @@ public class PullRequestDiffViewerActivity extends DiffViewerActivity<ReviewComm
 
     @Override
     public Single<List<Reaction>> loadReactionDetails(ReactionBar.Item item, boolean bypassCache) {
-        final CommitCommentWrapper comment = (CommitCommentWrapper) item;
+        final CommentWrapper comment = (CommentWrapper) item;
         final ReactionService service = ServiceFactory.get(ReactionService.class, bypassCache);
         return ApiHelpers.PageIterator
                 .toSingle(page -> service.getPullRequestReviewCommentReactions(
@@ -128,7 +128,7 @@ public class PullRequestDiffViewerActivity extends DiffViewerActivity<ReviewComm
 
     @Override
     public Single<Reaction> addReaction(ReactionBar.Item item, String content) {
-        CommitCommentWrapper comment = (CommitCommentWrapper) item;
+        CommentWrapper comment = (CommentWrapper) item;
         ReactionService service = ServiceFactory.get(ReactionService.class, false);
         ReactionRequest request = ReactionRequest.builder().content(content).build();
 

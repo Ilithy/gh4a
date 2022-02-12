@@ -73,10 +73,7 @@ public abstract class WebViewerActivity extends BaseActivity implements
     public static final String PRINT_CSS_THEME = "print";
 
     private static final ArrayList<String> sLanguagePlugins = new ArrayList<>();
-
-    private final int[] ZOOM_SIZES = new int[] {
-        50, 75, 100, 150, 200
-    };
+    private static final int[] ZOOM_SIZES = { 50, 75, 100, 150, 200 };
 
     private final WebViewClient mWebViewClient = new WebViewClient() {
         @Override
@@ -339,13 +336,11 @@ public abstract class WebViewerActivity extends BaseActivity implements
 
         AssetManager am = getAssets();
         try {
-            String[] files = am.list("");
-            for (String f : files) {
-                if (f.startsWith("lang-")) {
-                    int pos = f.lastIndexOf('.');
-                    if (pos > 0 && TextUtils.equals(f.substring(pos + 1), "js")) {
-                        sLanguagePlugins.add(f.substring(0, pos));
-                    }
+            String[] files = am.list("prettify-plugins");
+            for (String filename : files) {
+                if (filename.endsWith(".js")) {
+                    int dotPosition = filename.lastIndexOf('.');
+                    sLanguagePlugins.add("prettify-plugins/" + filename.substring(0, dotPosition));
                 }
             }
         } catch (IOException e) {
@@ -400,7 +395,6 @@ public abstract class WebViewerActivity extends BaseActivity implements
     protected String generateCodeHtml(String data, String fileName,
                 int highlightStart, int highlightEnd,
                 String cssTheme, boolean addTitleHeader) {
-        String ext = FileUtils.getFileExtension(fileName);
         String title = addTitleHeader ? getDocumentTitle() : null;
         StringBuilder content = new StringBuilder();
         content.append("<html><head><title>");
@@ -425,13 +419,31 @@ public abstract class WebViewerActivity extends BaseActivity implements
             content.append("<h2>").append(title).append("</h2>");
         }
         content.append("<pre id='content' class='prettyprint linenums lang-");
-        content.append(ext).append("'>");
+        content.append(prettifyLanguageCodeFor(fileName, data)).append("'>");
 
         content.append(TextUtils.htmlEncode(data));
         content.append("</pre></body></html>");
 
         mRequiresJsInterface = true;
         return content.toString();
+    }
+
+    private String prettifyLanguageCodeFor(String fileName, String fileContent) {
+        if (FileUtils.isMarkdown(fileName)) {
+            // Markdown files can have HTML code in them, so this is the best compromise we can do
+            // to overcome the absence of Markdown syntax highlighting in Prettify library
+            return "html";
+        }
+
+        String extension = FileUtils.getFileExtension(fileName);
+        if (!StringUtils.isBlank(extension)) {
+            return extension;
+        }
+
+        boolean hasShebangLine = fileContent.startsWith("#!");
+        return hasShebangLine
+                ? ""      // default prettify code highlighting
+                : "txt";  // plain text, no highlighting
     }
 
     protected static String wrapUnthemedHtml(String html, String cssTheme, String title) {
